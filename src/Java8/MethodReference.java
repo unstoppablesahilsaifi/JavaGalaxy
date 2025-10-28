@@ -5,6 +5,11 @@ import java.util.List;
 
 // A method reference is shorthand for a lambda expression to call a method directly using ::
 //Syntax: ClassName::methodName
+
+
+//str -> System.out.println(str)
+//// can be replaced with
+//        System.out::println
 public class MethodReference {
     public static void main(String[] args) {
         List<String> names = Arrays.asList("Sahil", "Amit", "Rohan", "Priya");
