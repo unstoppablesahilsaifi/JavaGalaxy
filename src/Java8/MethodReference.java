@@ -11,6 +11,9 @@ public class MethodReference {
 
         // Lambda Expression
         names.forEach(name -> System.out.println(name));
+
+        // Method Reference — shortcut for above lambda
+        names.forEach(System.out::println);
     }
 
 
