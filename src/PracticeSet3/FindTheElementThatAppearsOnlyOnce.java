@@ -15,6 +15,6 @@ public class FindTheElementThatAppearsOnlyOnce {
         System.out.println(count);
        int ans= count.entrySet().stream().filter(n->n.getValue()==1).map(Map.Entry::getKey).findFirst().orElse(-1);
         System.out.println(ans);
-
+//
     }
 }

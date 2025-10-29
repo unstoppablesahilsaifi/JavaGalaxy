@@ -20,6 +20,6 @@ public class FindDuplicateUsingStream {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
-        System.out.println("Duplicate elements: " + duplicates);
+        System.out.println("Duplicate elements: " + duplicates);//
     }
 }
