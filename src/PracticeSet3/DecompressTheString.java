@@ -2,28 +2,20 @@ package PracticeSet3;
 
 public class DecompressTheString {
     public static void main(String[] args) {
-        String compressed = "a12b3c10"; // input compressed string
-        StringBuilder decompressed = new StringBuilder();
+        String compressed = "a2b1c3";  // Input string
+        String result = "";
 
-        // i pointer character aur number dono handle karega
-        for (int i = 0; i < compressed.length();) {
-            char ch = compressed.charAt(i++); // pehle character lo (e.g. 'a')
+        // har baar ek character aur uske baad ka number lelo
+        for (int i = 0; i < compressed.length(); i += 2) {
+            char ch = compressed.charAt(i);      // character lo
+            int count = compressed.charAt(i + 1) - '0'; // uska count nikalo
 
-            StringBuilder num = new StringBuilder();
-            // jab tak agla character digit ho, pura number bnao
-            while (i < compressed.length() && Character.isDigit(compressed.charAt(i))) {
-                num.append(compressed.charAt(i++));
-            }
-
-            // pura number integer me convert karo
-            int count = Integer.parseInt(num.toString());
-
-            // ab 'ch' ko 'count' baar repeat karke append karo
+            // count times us character ko add karo
             for (int j = 0; j < count; j++) {
-                decompressed.append(ch);
+                result += ch;
             }
         }
 
-        System.out.println(decompressed.toString());
+        System.out.println(result); // Output: aabccc
     }
 }
