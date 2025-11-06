@@ -40,6 +40,6 @@ public class FirstNonRepeatingElement {
                 .findFirst()
                 .orElse(-1);
 
-        System.out.println("result = " + result);
+        System.out.println("result = " + result);//
     }
 }
