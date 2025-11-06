@@ -34,15 +34,12 @@ public class FirstNonRepeatingElement {
         Map<Integer, Long> countMap = Arrays.stream(arr)
                 .boxed()
                 .collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+        int result = countMap.entrySet().stream()
+                .filter(e -> e.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(-1);
 
-        OptionalInt firstNonRepeating = Arrays.stream(arr)
-                .filter(num -> countMap.get(num) == 1)
-                .findFirst();
-
-        if (firstNonRepeating.isPresent()) {
-            System.out.println("Stream → First non-repeating element: " + firstNonRepeating);
-        } else {
-            System.out.println("Stream → No non-repeating element found");
-        }
+        System.out.println("result = " + result);
     }
 }
