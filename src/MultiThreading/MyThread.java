@@ -34,7 +34,7 @@ public class MyThread implements Runnable {
         System.out.println("State B (Just after start): " + t1.getState());  // RUNNABLE
 
         // (C) Main thread ko 1 sec sula dete hain, taaki t1 run kare
-        Thread.sleep(1000);
+        Thread.sleep(1000);// thodi der k liye rukta h per lock release nhi krta
         // Abhi t1 "Thread.sleep(2000)" ke andar hoga → TIMED_WAITING
         System.out.println("State C (After 1 sec): " + t1.getState());
 
