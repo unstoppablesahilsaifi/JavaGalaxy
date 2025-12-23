@@ -16,6 +16,6 @@ public class AnagramChecker {
                 break;
             }
         }
-        System.out.println("Yaha tak aa gye mtlb anagaram h kyuki pura array traverse ho gya sab zero mile ");
+        System.out.println("Yaha tak aa gye mtlb anagaram h kyuki pura array traverse ho gya sab zero mile.. ");
     }
 }
