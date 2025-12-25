@@ -23,7 +23,6 @@ public class FirstNonRepeatingElement {
                 break;            // kyunki hume "first" chahiye
             }
         }
-
         if (ans != -1) {
             System.out.println("Brute Force → First non-repeating element: " + ans);
         } else {
