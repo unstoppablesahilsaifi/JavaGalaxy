@@ -2,7 +2,7 @@ package PracticeSet2;
 
 public class CountDigitsOfANumber {
     public static void main(String[] args) {
-        int num = 1234;
+        int num = 9999;
         int count = 0;
 
         while (num > 0) {
