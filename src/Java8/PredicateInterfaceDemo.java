@@ -42,7 +42,7 @@ public class PredicateInterfaceDemo {
     }
 
     /*
-     * FINAL INTERVIEW LINE:
+     * FINAL INTERVIEW LINE::
      * Predicate is a functional interface in Java 8
      * used for condition checking and returns a boolean value.
      */
