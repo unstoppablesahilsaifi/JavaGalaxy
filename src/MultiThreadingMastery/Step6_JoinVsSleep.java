@@ -26,5 +26,9 @@ public class Step6_JoinVsSleep {
         thread1.join();
 
         System.out.println("Main Thread End");
+
+        //Main Thread Start already execute ho chuka hota hai
+        //
+        //join future execution ko control karta hai, past ko nahi
     }
 }
