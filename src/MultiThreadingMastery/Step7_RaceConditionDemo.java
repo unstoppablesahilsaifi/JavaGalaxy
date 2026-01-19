@@ -6,6 +6,9 @@ package MultiThreadingMastery;
  */
 class Counter {
     int count = 0;
+    void increment(){
+        count++;
+    }
 }
 
 /**
@@ -23,7 +26,7 @@ class MyThread extends Thread {
     public void run() {
         // 👇 loop add kiya
         for (int i = 1; i <= 500; i++) {
-            counter.count++;   // 👈 race condition yahin hai
+            counter.increment();   // 👈 race condition yahin hai
         }
     }
 }
