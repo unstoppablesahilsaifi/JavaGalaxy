@@ -1,6 +1,6 @@
 package MultiThreadingMastery;
 
-
+//Jab multiple threads ek hi shared data ko same time pe modify karte hain aur result unpredictable ho jaata hai
 /**
  * Shared data
  */
