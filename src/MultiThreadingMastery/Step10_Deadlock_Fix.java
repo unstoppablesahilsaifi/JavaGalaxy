@@ -1,5 +1,5 @@
 package MultiThreadingMastery;
-
+// Sleep does not release the lock
 class Lock{
     static final Object lock1=new Object();
     static final Object lock2=new Object();
