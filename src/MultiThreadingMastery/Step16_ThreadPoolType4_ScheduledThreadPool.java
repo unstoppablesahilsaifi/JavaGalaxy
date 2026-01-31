@@ -30,3 +30,9 @@ public class Step16_ThreadPoolType4_ScheduledThreadPool {
     }
 }
 //ScheduledThreadPool is used for delayed and periodic tasks.
+
+/*
+Why not sleep- coz sleep thread ko block krta h , time reliable nhi h, agar 3 second sleep kiya to ho skta h 3.1 second wait krle
+scheduled m time accurate hota h
+
+* */
