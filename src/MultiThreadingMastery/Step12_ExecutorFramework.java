@@ -1,6 +1,13 @@
 package MultiThreadingMastery;
 //Executor Framework manages thread creation and reuse, allowing developers to focus only on tasks.
+/*Har baar naya thread
+Thread banana mehnga hota hai
+1000 request = 1000 threads 💣
+CPU + Memory overload
+👉 Yahin pe server girta hai*/
 
+
+// Limited threads bana lo, unhi ko reuse karo
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
