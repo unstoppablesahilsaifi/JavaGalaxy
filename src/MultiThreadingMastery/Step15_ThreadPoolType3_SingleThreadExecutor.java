@@ -38,4 +38,20 @@ File writing
 
 Payment processing
 
-Sequential tasks*/
+Sequential tasks*
+
+
+Agar executor ka single thread:
+
+Crash ho jaaye
+
+Error aaye
+
+👉 Executor naya thread bana deta hai
+
+❌ Main thread:
+
+“Gaya to gaya” 😬
+
+/
+ */
