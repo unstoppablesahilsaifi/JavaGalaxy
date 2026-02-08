@@ -1,6 +1,37 @@
 package MultiThreadingMastery;
 import java.util.concurrent.locks.ReentrantLock;
+/*Agar lock kisi aur thread ke paas hai:
 
+👉 Tumhari thread ruk jaayegi
+👉 Kitni der? pata nahi
+👉 Infinite wait possible
+
+Isse hota hai:
+
+❌ Deadlock risk
+❌ Thread starvation
+❌ App hang
+
+🔥 Industry ne bola:
+
+Hume aisa option chahiye jahan
+agar lock na mile to
+thread rukne ke bajay kuch aur kaam kar le
+
+✅ Isliye aaya tryLock()
+if(lock.tryLock()) {
+   // kaam karo
+} else {
+   // alternative path
+}
+
+🎯 tryLock KYA karta hai?
+
+👉 Lock free → mil jaata hai
+👉 Lock busy → turant false
+
+
+*/
 // -------------------- SERVICE CLASS --------------------
 class TryLockService {
 
