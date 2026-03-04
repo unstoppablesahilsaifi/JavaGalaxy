@@ -340,7 +340,57 @@ Because:
 Atomic guarantees atomicity using CAS and retry logic instead of locking.
 
 */
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
+
+class CounterAtomic {
+
+    private AtomicInteger count = new AtomicInteger(0);
+
+    public void increment() {
+        count.incrementAndGet();
+    }
+
+    public int getCount() {
+        return count.get();
+    }
+}
+class CounterTask implements Runnable {
+
+    private CounterAtomic counter;
+
+    public CounterTask(CounterAtomic counter) {
+        this.counter = counter;
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 0; i < 1000; i++) {
+            counter.increment();
+        }
+    }
+}
 
 public class Step24_AtomicClass {
+    public static void main(String[] args) throws InterruptedException {
+
+        CounterAtomic sharedCounter = new CounterAtomic();
+
+        // Fixed Thread Pool of 10 threads
+        ExecutorService executor = Executors.newFixedThreadPool(10);
+
+        // Submit 10 tasks
+        for (int i = 0; i < 10; i++) {
+            executor.submit(new CounterTask(sharedCounter));
+        }
+
+        executor.shutdown();  // Stop accepting new tasks
+        executor.awaitTermination(1, TimeUnit.MINUTES);
+
+        System.out.println("Final Counter Value: " + sharedCounter.getCount());
+    }
 }
