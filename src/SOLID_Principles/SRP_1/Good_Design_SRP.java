@@ -1,6 +1,7 @@
 package SOLID_Principles.SRP_1;
 //One class = One responsibility
-
+//What is Single Responsibility Principle?
+// Single Responsibility Principle states that a class should have only one responsibility and only one reason to change.
 class UserRepository {
 
     public void saveUser(String name) {
