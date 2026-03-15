@@ -46,11 +46,8 @@ public class Bad_Design_LSP {
     }
 }
 /*Problem
-
 Penguin ko parent class ki jagah use kiya → system break ho gaya.
 
 Matlab:
-
 Child class parent ko safely replace nahi kar pa rahi
-
 Ye LSP violation hai.*/
