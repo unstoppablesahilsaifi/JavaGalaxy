@@ -68,3 +68,31 @@ RobotWorker ko useless method implement karna pada.
 eat() robot ke kaam ka nahi hai
 
 Ye Interface Segregation violation hai.*/
+
+
+
+/*Question:
+
+Robot ko eat ki need nahi hai to eat extend hi mat karo, sirf work extend karo. Kya dono extend karna mandatory hota hai?
+Answer: Nahi. Bilkul mandatory nahi hota.
+ISP ka rule hi ye bolta hai ki client ko sirf wahi interface implement karna chahiye jo usko chahiye.
+
+1️⃣ Bad Design me problem kya thi
+
+Interface:
+interface Worker {
+    void work();
+    void eat();
+}
+
+Ab
+
+class RobotWorker implements Worker
+
+Robot ko eat() ki zaroorat hi nahi, phir bhi force ho gaya implement karne ko.
+
+Isliye usne likh diya:
+
+throw new UnsupportedOperationException();
+
+Ye hi ISP violation hai.*/
