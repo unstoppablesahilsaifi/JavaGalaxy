@@ -8,6 +8,13 @@ package SOLID_Principles.ISP_4;
 //❌ Fat interface (bahut saare methods)
 //✅ Multiple small interfaces
 
+/*👉 Agar ek bada interface bana diya jisme unnecessary methods hain, to client classes ko un methods ko implement karna padta hai jinki unko zaroorat hi nahi.
+👉 Ye hi violation hai → fat interfaces = problem.
+
+ISP kehta hai:
+
+⚡ Clients should not be forced to depend on methods they do not use.
+🪶 (Chhote-chhote specific interfaces banao, unnecessary burden mat do.)*/
 
 //Suppose ek Worker interface bana diya.
 interface Worker {
