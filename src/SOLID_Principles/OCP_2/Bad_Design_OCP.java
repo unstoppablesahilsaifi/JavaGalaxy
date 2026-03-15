@@ -51,17 +51,22 @@ public class Bad_Design_OCP {
     }
 }
 
+/*Agar new payment method aa jaye
 
-/*Problem Analysis
+Example
+➡️ Bitcoin payment
 
-Agar new payment add karna ho:
+To kya karna padega?
 
-Debit Card
-Net Banking
-Crypto
+else if(type.equals("bitcoin")) {
+    System.out.println("Processing Bitcoin payment");
+}
 
-To modify karna padega:
-PaymentProcessor
+Matlab
+
+❌ existing class modify karni padegi
+
+Ye OCP violation hai.
 
 Matlab:
 
