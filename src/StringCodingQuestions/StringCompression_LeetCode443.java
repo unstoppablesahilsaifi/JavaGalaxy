@@ -22,29 +22,33 @@ public class StringCompression_LeetCode443 {
         char[] name = {'a','a','b','b','c','c','c'};
 
         StringBuilder ssbb = new StringBuilder();
-        int count = 0;
+        int count = 1; // start from 1 (current char included)
 
-        for(int i = 0; i < name.length; i++) {
+        for(int i = 1; i < name.length; i++) {
 
-            count++;
-
-            // group end condition
-            if(i == name.length - 1 || name[i] != name[i + 1]) {
-
-                ssbb.append(name[i]);
+            if(name[i] == name[i - 1]) {
+                count++;
+            } else {
+                // group end → append previous char
+                ssbb.append(name[i - 1]);
 
                 if(count > 1) {
                     ssbb.append(count);
                 }
 
-                count = 0; // reset for next group
+                count = 1; // reset for next group
             }
+        }
+
+        // ⚠️ last group handle karna mat bhoolna
+        ssbb.append(name[name.length - 1]);
+        if(count > 1) {
+            ssbb.append(count);
         }
 
         int output = ssbb.length();
 
         System.out.println("Compressed String: " + ssbb.toString());
         System.out.println("Output Length: " + output);
-
     }
 }
