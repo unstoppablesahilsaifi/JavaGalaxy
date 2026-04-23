@@ -112,3 +112,24 @@ public class Good_Design_Abstract_Factory {
         furnishRoom(new ArtDecoFactory());
     }
 }
+
+
+/*Output
+=== Modern Room ===
+Sitting on a sleek Modern Chair
+Placing on a minimal Modern Table
+=== Victorian Room ===
+Sitting on an ornate Victorian Chair
+Placing on a carved Victorian Table
+=== Art Deco Room ===
+Sitting on a geometric Art Deco Chair
+Placing on a bold Art Deco Table
+
+
+Fix 1 — Zero if-else in client
+furnishRoom() ko style ka pata hi nahi. FurnitureFactory interface se baat karta hai bas.
+Fix 2 — Java type system guarantee karta hai
+Chair aur Table interfaces use hote hain — concrete class ka naam client mein kahin nahi hai.
+Fix 3 — Open/Closed Principle follow hua
+ArtDecoFactory add ki — existing furnishRoom(), ModernFactory, VictorianFactory — sab untouched.
+*/
