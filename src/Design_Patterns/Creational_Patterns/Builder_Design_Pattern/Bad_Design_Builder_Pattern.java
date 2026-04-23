@@ -90,3 +90,17 @@ public class Bad_Design_Builder_Pattern {
         System.out.println(b2);
     }
 }
+
+
+/*Output
+Burger[large, beef, cheese=true, lettuce=false, tomato=true, onion=false, sauce=bbq, extraPatties=1]
+Burger[small, chicken, cheese=true, lettuce=false, tomato=false, onion=false, sauce=none, extraPatties=0]
+
+
+
+Problem 1 — Telescoping constructors
+Har combination ke liye naya constructor. 8 optional fields = potentially 256 combinations.
+Problem 2 — Unreadable call site
+new Burger("large","beef",true,false,true,false,"bbq",1) — 6 mahine baad tum khud nahi samjhoge.
+Problem 3 — Forced null/default values
+Sirf cheese chahiye toh bhi baaki 6 fields ke liye false/"none"/0 dena padega.*/
