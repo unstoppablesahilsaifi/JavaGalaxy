@@ -1,68 +1,73 @@
 package Design_Patterns.Creational_Patterns.Abstract_Factory_Pattern;
-/*
-* 🤯 Simple samajh
-👉 Factory kya karta tha?
-→ Ek object deta tha
+/*Abstract Factory kya hota hai?
+Sochlo tum ek furniture shop chalate ho.
+Tumhare paas do styles hain — Modern aur Victorian. Har style mein Chair, Table, aur Sofa hota hai.
+Problem yeh hai ki agar tum Modern Chair ke saath Victorian Table mix kar do,
+toh design kharab ho jaayega. Tumhe guarantee chahiye ki ek hi style ka saara furniture milkar aaye.
+Abstract Factory ek pattern hai jo tumhe ek "factory of factories" deta hai —
+ek interface jo related objects ka poora family banata hai, bina yeh specify kiye ki unki concrete classes kya hain.*/
 
-👉 Abstract Factory kya karta hai?
-→ Ek poori family (group) of objects deta hai
-
-*
-* 🎯 Real-life Example
-👉 UI Theme:
-
-Light Theme:
-           Light Button
-           Light Checkbox
-Dark Theme:
-           Dark Button
-           Dark Checkbox
-
-👉 Tumhe ek theme select karna hai → uske saare components automatically milne chahiye
-*/
-
-/*📌 Problem (Without Abstract Factory)
-Maan le tum ek UI Application bana rahe ho jo Windows aur MacOS dono pe chalni chahiye.
-Har OS ke liye tumhe Button aur Checkbox banane hain.
-*/
-interface Button { void paint(); }
-class WindowsButton implements Button {
-    public void paint() { System.out.println("Windows Button"); }
+// ---- Concrete classes directly — koi interface nahi ----
+class ModernChair_Bad {
+    public String sitOn() { return "Sitting on a sleek Modern Chair"; }
 }
-class MacButton implements Button {
-    public void paint() { System.out.println("Mac Button"); }
+class VictorianChair_Bad {
+    public String sitOn() { return "Sitting on an ornate Victorian Chair"; }
+}
+class ModernTable_Bad {
+    public String placeOn() { return "Placing on a minimal Modern Table"; }
+}
+class VictorianTable_Bad {
+    public String placeOn() { return "Placing on a carved Victorian Table"; }
 }
 
-interface Checkbox { void paint(); }
-class WindowsCheckbox implements Checkbox {
-    public void paint() { System.out.println("Windows Checkbox"); }
-}
-class MacCheckbox implements Checkbox {
-    public void paint() { System.out.println("Mac Checkbox"); }
-}
 public class Bad_Design_Abstract_Factory {
-    public static void main(String[] args) {
-        String os = "MAC";  // ya to WINDOWS ya MAC
+    static void furnishRoom(String style) {
+        // PROBLEM 1: Har method mein yahi if-else repeat hoga
 
-        // 👇 Client khud object decide kar raha hai
-        if (os.equals("WINDOWS")) {
-            Button b = new WindowsButton();
-            Checkbox c = new WindowsCheckbox();
-            b.paint();
-            c.paint();
-        } else {
-            Button b = new MacButton();
-            Checkbox c = new MacCheckbox();
-            b.paint();
-            c.paint();
-        }
+        if (style.equals("modern")) {
+            ModernChair_Bad chair = new ModernChair_Bad();
+            ModernTable_Bad table = new ModernTable_Bad();
+            System.out.println(chair.sitOn());
+            System.out.println(table.placeOn());
+            // PROBLEM 2: Koi nahi rokta — wrong mix bhi compile ho jaata hai
+
+            VictorianChair_Bad wrongChair = new VictorianChair_Bad(); // No compile error!
+
+            System.out.println(wrongChair.sitOn()); // Style mismatch — silent bug
+
+        } else if (style.equals("victorian")) {
+            VictorianChair_Bad chair = new VictorianChair_Bad();
+            VictorianTable_Bad table = new VictorianTable_Bad();
+            System.out.println(chair.sitOn());
+            System.out.println(table.placeOn());
+        } // PROBLEM 3: Naya "ArtDeco" style? Yahan bhi else-if add karo, aur SAARI jagah bhi
+
+    }
+
+    public static void main(String[] args) {
+        furnishRoom("modern");
+        System.out.println("---");
+        furnishRoom("victorian");
     }
 }
-/*✅ Output (if os = "MAC")
-Mac Button
-Mac Checkbox
 
-❌ Issues
-Client ke andar if-else bada hota jaayega agar aur products aaye (Slider, Textbox, Menu, etc).
-Har jagah client ko class names pata hone chahiye (WindowsButton, MacButton).
-Tightly coupled ho gaya.*/
+
+/*Output
+Sitting on a sleek Modern Chair
+Placing on a minimal Modern Table
+Sitting on an ornate Victorian Chair  <-- Style mismatch! Koi error nahi
+---
+Sitting on an ornate Victorian Chair
+Placing on a carved Victorian Table
+Sitting on an ornate Victorian Chair  <-- Phir wahi bug
+
+
+
+Problem 1 — if-else har jagah
+10 methods hon toh 10 jagah same if-else likhna padega. Ek jagah bhool gaye? Bug.
+Problem 2 — Java compiler bhi nahi pakdega
+new VictorianChair() Modern room mein — perfectly valid Java. Runtime par silent bug.
+Problem 3 — Closed for extension
+Naya style add karna = existing code modify karna. Open/Closed Principle toot raha hai.
+*/
