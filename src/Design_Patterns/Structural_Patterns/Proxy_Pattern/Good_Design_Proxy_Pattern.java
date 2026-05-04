@@ -58,3 +58,15 @@ public class Good_Design_Proxy_Pattern {
         user2.playVideo();
     }
 }
+/*✅ Output
+Access Denied! Buy Premium.
+
+Playing premium video...
+🔥 Internal Flow
+Client
+   ↓
+Proxy
+   ↓
+Real Object
+
+Client kabhi directly real object ko access nahi karta.*/
