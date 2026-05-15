@@ -58,3 +58,28 @@ public class Good_Design_Facade_Pattern {
     }
 
 }
+
+
+/*🔥 Internal Flow
+Client
+   ↓
+Facade
+   ↓
+Multiple Complex Systems
+
+Client ko andar ki complexity nahi pata.
+
+
+
+🎯 Real-world Uses
+Example	Facade
+Spring Boot Starter	Simplified config
+JDBC Utility	DB complexity hide
+Payment Gateway SDK	Multiple APIs hide
+Home Theater	Multiple devices manage
+
+
+
+👉 Facade = “Ek simple button behind complex work”
+
+*/
