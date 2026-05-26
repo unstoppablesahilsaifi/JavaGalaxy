@@ -50,3 +50,85 @@ public class Good_Design_Flyweight_Pattern {
         s3.showPosition(50, 60);
     }
 }
+
+/*🔥 Observe Carefully
+
+WITHOUT Flyweight:
+
+Created
+Created
+Created
+
+WITH Flyweight:
+
+Created
+
+Sirf ek object bana 🔥
+
+Baaki reuse hua.
+
+🔥 Main Magic
+
+Ye line:
+
+private static Map<String, Soldier> soldierMap
+
+Ye cache hai.
+
+Flow Samajh
+
+First call:
+
+getSoldier("Terrorist")
+
+Map empty hai.
+
+👉 New object create hua.
+
+Store ho gaya:
+
+"Terrorist" → object
+
+Second call:
+
+getSoldier("Terrorist")
+
+Ab map me already hai.
+
+👉 New object nahi banega.
+
+Old object return hoga.
+
+🔥 Flyweight me 2 cheeze hoti hain
+Type	Meaning
+Intrinsic State	Shared/common data
+Extrinsic State	Unique data
+Hamare example me
+State	Example
+Intrinsic	Soldier type
+Extrinsic	x,y position
+Interview Definition
+
+Flyweight Pattern minimizes memory usage by sharing common objects instead of creating duplicate objects.
+
+Shortcut Yaad Rakh
+Same object baar baar?
+→ reuse karo
+→ Flyweight
+Difference
+Pattern	Purpose
+Adapter	Interface convert
+Decorator	Feature add
+Proxy	Access control
+Facade	Complexity hide
+Composite	Tree structure
+Flyweight	Memory optimize
+🔥 Java Real Example
+String s1 = "Hello";
+String s2 = "Hello";
+
+Java new object nahi banata baar baar.
+
+👉 String pool use karta hai.
+
+Ye Flyweight concept hai 🔥*/
