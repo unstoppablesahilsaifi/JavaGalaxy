@@ -107,3 +107,53 @@ public class Part3_Stack_Implementation_Using_Array {
 
 }
 
+/*Interview Questions
+Q1. arr[++top] = value aur arr[top++] = value me difference?
+
+Bahut important.
+
+Suppose
+
+top = -1
+arr[++top] = 10
+
+Pehle top increment hoga.
+
+top = 0
+
+Fir
+
+arr[0] = 10
+
+✅ Correct.
+
+arr[top++] = 10
+
+Pehle
+
+arr[-1] = 10
+
+Fir
+
+top = 0
+
+❌ Wrong. ArrayIndexOutOfBoundsException aa jayegi.
+
+Rule yaad rakho: Push me pre-increment (++top) use karte hain.
+
+Q2. return arr[top--]; kaise kaam karta hai?
+
+Ye post-decrement hai.
+
+Steps:
+
+return arr[top];
+top--;
+
+Agar
+
+top = 2
+arr[2] = 30
+
+To pehle 30 return hoga, phir top = 1.*/
+
