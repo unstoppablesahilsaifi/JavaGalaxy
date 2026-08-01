@@ -423,6 +423,6 @@ Interview ka favourite.
 ===============================================================================
 
 */
-public class One_Stack_Intro {
+public class Part1_Stack_Intro {
 
 }

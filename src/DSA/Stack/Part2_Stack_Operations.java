@@ -2,7 +2,7 @@ package DSA.Stack;
 
 import java.util.Stack;
 
-public class Two_Stack_Operations {
+public class Part2_Stack_Operations {
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(10);
