@@ -1123,3 +1123,256 @@ public class Part2_Queue_Operations {
 }
 
 
+/*
+===============================================================================
+                    QUEUE USING SIMPLE ARRAY - PROBLEM
+===============================================================================
+
+
+# ⚠️ Queue Using Simple Array ki Problem
+
+Ab ek important situation dekho.
+
+
+Capacity = 5
+
+
+Initially:
+
+[10] [20] [30] [40] [50]
+ ↑                        ↑
+Front                    Rear
+
+
+Ab 2 dequeue:
+
+dequeue() → 10
+dequeue() → 20
+
+
+Array physically:
+
+[  ] [  ] [30] [40] [50]
+          ↑              ↑
+        Front           Rear
+
+
+Ab dekho:
+
+Index 0 → empty
+Index 1 → empty
+
+
+Matlab space available hai.
+
+Lekin `rear` already last index `4` par pahunch chuka hai.
+
+
+Ab:
+
+enqueue(60)
+
+
+Simple linear implementation bolega:
+
+Queue Full
+
+
+😕 But actually:
+
+[  ] [  ] [30] [40] [50]
+
+me 2 spaces khali hain!
+
+
+===============================================================================
+11. YE PROBLEM IMPORTANT KYU HAI?
+===============================================================================
+
+Isi ko kehte hain:
+
+## Wasted Space
+
+
+Simple Array Queue me Front ke peeche jo space free ho gayi,
+wo reuse nahi ho rahi.
+
+
+Diagram:
+
+Index
+
+ 0    1    2    3    4
+[ ]  [ ]  [30] [40] [50]
+ ↑    ↑              ↑
+Free Free           Rear
+
+
+Rear aage nahi ja sakta.
+
+
+===============================================================================
+12. SOLUTION → CIRCULAR QUEUE 🔄
+===============================================================================
+
+Circular Queue me hum array ko circular treat karte hain.
+
+
+Matlab:
+
+0 → 1 → 2 → 3 → 4
+↑                 ↓
+└─────────────────┘
+
+
+Last index ke baad:
+
+4 → 0
+
+
+So agar:
+
+rear = 4
+
+
+aur index `0` free hai, to next element:
+
+rear = 0
+
+
+par insert ho sakta hai.
+
+
+Isi concept ko hum Circular Queue me detail me padhenge.
+
+
+===============================================================================
+13. QUEUE OPERATIONS SUMMARY
+===============================================================================
+
++-------------+-------------+----------------+
+| Operation   | Meaning     | Where?         |
++-------------+-------------+----------------+
+| enqueue()   | Insert      | Rear           |
+| dequeue()   | Remove      | Front          |
+| peek()      | View        | Front          |
+| isEmpty()   | Check empty | —              |
+| isFull()    | Check full  | —              |
+| size()      | Count       | —              |
+| display()   | Print       | Front → Rear   |
++-------------+-------------+----------------+
+
+
+===============================================================================
+14. QUEUE VS STACK — OPERATIONS
+===============================================================================
+
++----------------+------------------+
+| Stack          | Queue            |
++----------------+------------------+
+| push()         | enqueue()        |
+| pop()          | dequeue()        |
+| peek() → Top   | peek() → Front   |
+| isEmpty()      | isEmpty()        |
+| isFull()       | isFull()         |
+| LIFO           | FIFO             |
++----------------+------------------+
+
+
+### Ek line me:
+
+
+Stack:
+
+Insert → Top
+Delete → Top
+
+
+Queue:
+
+Insert → Rear
+Delete → Front
+
+
+===============================================================================
+15. TIME COMPLEXITY
+===============================================================================
+
+A properly implemented Queue me:
+
+
++-------------+--------------+
+| Operation   | Complexity   |
++-------------+--------------+
+| Enqueue     | O(1)         |
+| Dequeue     | O(1)         |
+| Peek        | O(1)         |
+| isEmpty()   | O(1)         |
+| isFull()    | O(1)         |
++-------------+--------------+
+
+
+⚠️ Lekin ek important catch:
+
+
+Agar dequeue ke baad saare elements shift kar doge:
+
+
+[10][20][30][40]
+ ↓
+remove 10
+
+[20][30][40]
+
+
+aur har baar elements shift karoge,
+to `dequeue()` O(n) ho jayega.
+
+
+Hum aisa nahi karenge.
+
+
+Isi problem ko avoid karne ke liye `front` pointer use karte hain,
+aur later Circular Queue aur `ArrayDeque` samjhenge.
+
+
+===============================================================================
+🧠 INTERVIEWER'S MIND
+===============================================================================
+
+
+Q1. Queue me insertion kaha hoti hai?
+
+Answer:
+
+Rear
+
+
+Q2. Deletion kaha hoti hai?
+
+Answer:
+
+Front
+
+
+Q3. Queue FIFO kyu follow karti hai?
+
+Answer:
+
+Because the element that enters first is processed first.
+
+
+Q4. Simple array Queue ki major problem?
+
+Answer:
+
+Wasted space / false overflow after dequeue operations.
+
+
+Q5. Is problem ka solution?
+
+Answer:
+
+Circular Queue.
+
+*/
